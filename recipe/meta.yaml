@@ -21,10 +21,12 @@ requirements:
     - goosefem
     - gmatelastoplasticqpot
     - xtensor
+    - fmt
   run:
     - goosefem
     - gmatelastoplasticqpot
     - xtensor
+    - fmt
 
 test:
   commands:
