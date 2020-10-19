@@ -1,6 +1,6 @@
 {% set name = "frictionqpotfem" %}
-{% set version = "0.2.0" %}
-{% set sha256 = "82a3672be017246ea31ceab69d82ac0e3f1f02249883097e6769d0738fe0c587" %}
+{% set version = "0.3.0" %}
+{% set sha256 = "a750183a43346e97255e1bbff7f8fd78f664edf22ad797aaecd67c297ac3e708" %}
 
 package:
   name: {{ name|lower }}
@@ -18,14 +18,15 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make  # [unix]
-  host:
     - goosefem
     - gmatelastoplasticqpot
     - xtensor
+    - fmt
   run:
     - goosefem
     - gmatelastoplasticqpot
     - xtensor
+    - fmt
 
 test:
   commands:
