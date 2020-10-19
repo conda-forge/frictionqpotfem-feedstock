@@ -1,6 +1,6 @@
 {% set name = "frictionqpotfem" %}
-{% set version = "0.3.0" %}
-{% set sha256 = "a750183a43346e97255e1bbff7f8fd78f664edf22ad797aaecd67c297ac3e708" %}
+{% set version = "0.3.1" %}
+{% set sha256 = "3b9013d8b241c944b7da782de081393d11c20760931de2033a313c658b1379cb" %}
 
 package:
   name: {{ name|lower }}
