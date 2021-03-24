@@ -11,7 +11,7 @@ Summary: Library to run friction simulations based on "GMatElastoPlasticQPot" an
 
 Development: https://github.com/tdegeus/FrictionQPotFEM
 
-Documentation: https://github.com/tdegeus/FrictionQPotFEM
+Documentation: https://tdegeus.github.io/FrictionQPotFEM
 
 Library to run friction simulations based on "GMatElastoPlasticQPot" and "GooseFEM".
 
