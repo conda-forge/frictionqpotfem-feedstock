@@ -67,6 +67,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-frictionqpotfem-green.svg)](https://anaconda.org/conda-forge/frictionqpotfem) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/frictionqpotfem.svg)](https://anaconda.org/conda-forge/frictionqpotfem) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/frictionqpotfem.svg)](https://anaconda.org/conda-forge/frictionqpotfem) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/frictionqpotfem.svg)](https://anaconda.org/conda-forge/frictionqpotfem) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-python--frictionqpotfem-green.svg)](https://anaconda.org/conda-forge/python-frictionqpotfem) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/python-frictionqpotfem.svg)](https://anaconda.org/conda-forge/python-frictionqpotfem) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/python-frictionqpotfem.svg)](https://anaconda.org/conda-forge/python-frictionqpotfem) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/python-frictionqpotfem.svg)](https://anaconda.org/conda-forge/python-frictionqpotfem) |
 
 Installing frictionqpotfem
 ==========================
@@ -75,12 +76,13 @@ Installing `frictionqpotfem` from the `conda-forge` channel can be achieved by a
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `frictionqpotfem` can be installed with:
+Once the `conda-forge` channel has been enabled, `frictionqpotfem, python-frictionqpotfem` can be installed with:
 
 ```
-conda install frictionqpotfem
+conda install frictionqpotfem python-frictionqpotfem
 ```
 
 It is possible to list all of the versions of `frictionqpotfem` available on your platform with:

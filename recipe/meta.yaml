@@ -1,6 +1,6 @@
 {% set org = "tdegeus" %}
 {% set name = "FrictionQPotFEM" %}
-{% set version = "0.10.0" %}
+{% set version = "0.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,33 +8,76 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: a61296e80b875a24a45b429b30d10bdf0e58ff4a35dcf9c01dfde58d3b951d43
+  sha256: 8b6fec657486566fad630606660c02e7d953df2f154c63238123ce07d56911e5
 
 build:
   number: 0
+  script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
 
-requirements:
-  build:
-    - {{ compiler('cxx') }}
-    - cmake
-    - make  # [unix]
-  host:
-    - setuptools_scm
-    - goosefem
-    - gmatelastoplasticqpot
-    - xtensor
-  run:
-    - goosefem
-    - gmatelastoplasticqpot
-    - xtensor
+outputs:
 
-test:
-  commands:
-    - test -d ${PREFIX}/include/{{ name }}  # [unix]
-    - test -f ${PREFIX}/include/{{ name }}/UniformSingleLayer2d.h  # [unix]
-    - test -f ${PREFIX}/lib/cmake/{{ name }}/{{ name }}Config.cmake  # [unix]
-    - if exist %LIBRARY_PREFIX%\include\{{ name }}\UniformSingleLayer2d.h (exit 0) else (exit 1)  # [win]
-    - if exist %LIBRARY_PREFIX%\lib\cmake\{{ name }}Config.cmake (exit 0) else (exit 1)  # [win]
+  - name: {{ name|lower }}
+
+    script: install.sh  # [unix]
+    script: install.bat  # [win]
+
+    requirements:
+      build:
+        - {{ compiler('cxx') }}
+        - cmake
+        - make  # [unix]
+      host:
+        - setuptools_scm
+        - xtensor
+        - qpot
+        - goosefem
+        - gmatelastoplasticqpot
+      run:
+        - xtensor
+        - qpot
+        - goosefem
+        - gmatelastoplasticqpot
+
+    test:
+      commands:
+        - test -d ${PREFIX}/include/{{ name }}  # [unix]
+        - test -f ${PREFIX}/include/{{ name }}/UniformSingleLayer2d.h  # [unix]
+        - test -f ${PREFIX}/lib/cmake/{{ name }}/{{ name }}Config.cmake  # [unix]
+        - if exist %LIBRARY_PREFIX%\include\{{ name }}\UniformSingleLayer2d.h (exit 0) else (exit 1)  # [win]
+        - if exist %LIBRARY_PREFIX%\lib\cmake\{{ name }}Config.cmake (exit 0) else (exit 1)  # [win]
+
+  - name: python-{{ name|lower }}
+
+    script: install_python.sh  # [unix]
+    script: install_python.bat  # [win]
+
+    requirements:
+      build:
+        - {{ compiler('cxx') }}
+        - cmake
+        - ninja
+      host:
+        - setuptools_scm
+        - xtensor
+        - qpot
+        - goosefem
+        - gmatelastoplasticqpot
+        - python
+        - pip
+        - pybind11
+        - pyxtensor
+        - qpot
+        - goosefem
+      run:
+        - python
+
+    test:
+      imports:
+        - {{ name }}
+      commands:
+        - pip check
+      requires:
+        - pip
 
 about:
   home: https://github.com/{{ org }}/{{ name }}
