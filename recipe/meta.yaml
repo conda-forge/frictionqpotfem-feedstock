@@ -1,6 +1,6 @@
 {% set org = "tdegeus" %}
 {% set name = "FrictionQPotFEM" %}
-{% set version = "0.11.1" %}
+{% set version = "0.11.2" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 934800c03c43e67c1918b514fe06ff7d937eac32229852f5b6c10b7a112d968b
+  sha256: 91d038546517b215fa1470a259331550069a40e33fb13f3b06838c5d9ee4a954
 
 build:
   number: 0
@@ -63,8 +63,10 @@ outputs:
         - goosefem
         - gmatelastoplasticqpot
         - python
+        - numpy
         - pip
         - pybind11
+        - xtensor-python
         - pyxtensor
         - qpot
         - goosefem
