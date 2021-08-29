@@ -3,7 +3,7 @@
 {% set version = "0.14.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name|lower }}-split
   version: {{ version }}
 
 source:
