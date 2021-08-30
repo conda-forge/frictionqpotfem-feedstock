@@ -1,5 +1,5 @@
-About frictionqpotfem
-=====================
+About frictionqpotfem-split
+===========================
 
 Home: https://github.com/tdegeus/FrictionQPotFEM
 
@@ -76,10 +76,10 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-frictionqpotfem-green.svg)](https://anaconda.org/conda-forge/frictionqpotfem) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/frictionqpotfem.svg)](https://anaconda.org/conda-forge/frictionqpotfem) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/frictionqpotfem.svg)](https://anaconda.org/conda-forge/frictionqpotfem) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/frictionqpotfem.svg)](https://anaconda.org/conda-forge/frictionqpotfem) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-python--frictionqpotfem-green.svg)](https://anaconda.org/conda-forge/python-frictionqpotfem) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/python-frictionqpotfem.svg)](https://anaconda.org/conda-forge/python-frictionqpotfem) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/python-frictionqpotfem.svg)](https://anaconda.org/conda-forge/python-frictionqpotfem) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/python-frictionqpotfem.svg)](https://anaconda.org/conda-forge/python-frictionqpotfem) |
 
-Installing frictionqpotfem
-==========================
+Installing frictionqpotfem-split
+================================
 
-Installing `frictionqpotfem` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `frictionqpotfem-split` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
@@ -137,17 +137,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating frictionqpotfem-feedstock
-==================================
+Updating frictionqpotfem-split-feedstock
+========================================
 
-If you would like to improve the frictionqpotfem recipe or build a new
+If you would like to improve the frictionqpotfem-split recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/frictionqpotfem-feedstock are
+Note that all branches in the conda-forge/frictionqpotfem-split-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
