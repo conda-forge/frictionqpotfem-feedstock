@@ -1,19 +1,19 @@
 {% set org = "tdegeus" %}
 {% set name = "FrictionQPotFEM" %}
-{% set version = "0.13.0" %}
+{% set version = "0.14.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name|lower }}-split
   version: {{ version }}
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: f343b46c67e959d6af76cc9da0b9cba896f3c9d793252ca53855e36f6b831c4b
+  sha256: 305c7d4fcb6f7a5d404eb6333a73ec8660e846591101096c6cf7f9aa3b6a91a2
 
 build:
   number: 0
   script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
-  skip: true  # [py<39 and osx and not x86_64]
+  skip: True  # [python_impl == 'pypy']
 
 outputs:
 
@@ -24,21 +24,19 @@ outputs:
 
     requirements:
       build:
-        - python                                 # [build_platform != target_platform]
         - {{ compiler('cxx') }}
         - cmake
         - make  # [unix]
       host:
-        - python
-        - xtensor
-        - qpot
-        - goosefem
         - gmatelastoplasticqpot
+        - goosefem
+        - qpot
+        - xtensor
       run:
-        - xtensor
-        - qpot
-        - goosefem
         - gmatelastoplasticqpot
+        - goosefem
+        - qpot
+        - xtensor
 
     test:
       commands:
@@ -57,33 +55,33 @@ outputs:
       build:
         - python                              # [build_platform != target_platform]
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
-        - numpy                               # [build_platform != target_platform]
+        - numpy *                             # [build_platform != target_platform]
         - setuptools_scm                      # [build_platform != target_platform]
         - {{ compiler('cxx') }}
         - cmake
         - ninja
       host:
-        - setuptools_scm
-        - xtensor
-        - qpot
-        - goosefem
         - gmatelastoplasticqpot
-        - python
-        - numpy
+        - goosefem
+        - numpy *
         - pip
         - pybind11
-        - xtensor-python
-        - pyxtensor
+        - python
         - qpot
-        - goosefem
+        - scikit-build
+        - setuptools_scm
+        - xtensor
+        - xtensor-python
       run:
         - python
+        - numpy *
 
     test:
       imports:
         - {{ name }}
       commands:
         - pip check
+        - python -c "import {{ name }}; {{ name }}.version()"
       requires:
         - pip
 
