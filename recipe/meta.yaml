@@ -1,6 +1,6 @@
 {% set org = "tdegeus" %}
 {% set name = "FrictionQPotFEM" %}
-{% set version = "0.14.2" %}
+{% set version = "0.15.0" %}
 
 package:
   name: {{ name|lower }}-split
@@ -8,12 +8,11 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 9a04428c3d519dce30a2f0961935b3eab5c569788402667f59dd65a67f610841
+  sha256: 82cb303a6dfb2d08c33dac4cb617842f13524778d603dcc03fddd2d5a02d9963
 
 build:
   number: 0
   script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
-  skip: true  # [python_impl == 'pypy']
 
 outputs:
 
@@ -48,6 +47,9 @@ outputs:
 
   - name: python-{{ name|lower }}
 
+    build:        # [python_impl == 'pypy']
+      skip: true  # [python_impl == 'pypy']
+
     script: install_python.sh  # [unix]
     script: install_python.bat  # [win]
 
@@ -73,8 +75,8 @@ outputs:
         - xtensor
         - xtensor-python
       run:
-        - python
         - numpy *
+        - python
 
     test:
       imports:
