@@ -1,6 +1,6 @@
 {% set org = "tdegeus" %}
 {% set name = "FrictionQPotFEM" %}
-{% set version = "0.16.1" %}
+{% set version = "0.16.3" %}
 
 package:
   name: {{ name|lower }}-split
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: a6ea32415236e01a4adcc021286e62036d53ffe6f27fd8c8e873fdfe152acfd0
+  sha256: d9925edf9108f55ab76a9f5fe84baa3d97409f1975246af95f53eef32078206d
 
 build:
   number: 0
