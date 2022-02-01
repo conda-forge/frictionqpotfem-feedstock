@@ -72,6 +72,7 @@ outputs:
         - pybind11
         - python
         - qpot
+        - rich
         - scikit-build
         - setuptools_scm
         - xtensor
