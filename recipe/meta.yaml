@@ -64,6 +64,7 @@ outputs:
         - {{ compiler('cxx') }}
         - cmake
         - ninja
+        - make  # [unix]
       host:
         - gmatelastoplasticqpot
         - goosefem
