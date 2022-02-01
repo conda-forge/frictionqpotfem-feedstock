@@ -1,10 +1,10 @@
 diff --git a/setup.py b/setup.py
-index 115c78e..cfc6a45 100644
+index 115c78e..7d08e3d 100644
 --- a/setup.py
 +++ b/setup.py
 @@ -1,3 +1,9 @@
 +import platform
-+print("platform.mac_ver = ", platform.mac_ver)
++print("platform.mac_ver = ", platform.mac_ver())
 +
 +from rich.traceback import install
 +install(show_locals=True)
