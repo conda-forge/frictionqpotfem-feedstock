@@ -1,15 +1,6 @@
 :: %PYTHON% setup.py install --build-type Release %CMAKE_ARGS%
 :: with scikit-build incompatible arguments stripped from it
 
-mkdir -p mygoosetmp
-cd mygoosetmp
-git clone https://github.com/scikit-build/scikit-build.git
-cd scikit-build
-git checkout henryiii-patch-1
-$PYTHON -m pip install .
-cd ..
-cd ..
-
 echo import os > my_cmake_args.py
 echo args = [] >> my_cmake_args.py
 echo if 'CMAKE_ARGS' in os.environ: >> my_cmake_args.py
