@@ -1,8 +1,8 @@
 :: %PYTHON% setup.py install --build-type Release %CMAKE_ARGS%
 :: with scikit-build incompatible arguments stripped from it
 
-mkdir mytmp
-cd mytmp
+mkdir mygoosetmp
+cd mygoosetmp
 git clone https://github.com/scikit-build/scikit-build.git
 cd scikit-build
 git checkout henryiii-patch-1
