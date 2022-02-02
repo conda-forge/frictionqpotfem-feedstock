@@ -1,6 +1,9 @@
 :: %PYTHON% setup.py install --build-type Release %CMAKE_ARGS%
 :: with scikit-build incompatible arguments stripped from it
 
+git clone git@github.com:scikit-build/scikit-build.git
+git checkout henryiii-patch-1
+$PYTHON -m pip install .
 
 echo import os > my_cmake_args.py
 echo args = [] >> my_cmake_args.py

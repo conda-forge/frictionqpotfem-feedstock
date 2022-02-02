@@ -74,7 +74,7 @@ outputs:
         - python
         - qpot
         - rich
-        - scikit-build
+        # - scikit-build
         - setuptools_scm
         - xtensor
         - xtensor-python
