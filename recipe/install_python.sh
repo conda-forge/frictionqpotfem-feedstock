@@ -2,8 +2,10 @@
 # with scikit-build incompatible arguments stripped from it
 
 git clone https://github.com/scikit-build/scikit-build.git
+cd scikit-build
 git checkout henryiii-patch-1
 $PYTHON -m pip install .
+cd ..
 
 echo "import os
 args = []
