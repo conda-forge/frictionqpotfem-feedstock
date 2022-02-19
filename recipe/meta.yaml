@@ -11,8 +11,9 @@ source:
   sha256: b78aab8542f51f8cc5884b548c4efee53b9b7ddf818ac4f2936353490cb6a6de
 
 build:
-  number: 0
+  number: 1
   script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
+  skip: true  # [python_impl == 'pypy']
 
 outputs:
 
@@ -47,9 +48,6 @@ outputs:
 
   - name: python-{{ name|lower }}
 
-    build:   # [python_impl == 'pypy']
-      skip: true  # [python_impl == 'pypy']
-
     script: install_python.sh  # [unix]
     script: install_python.bat  # [win]
 
@@ -61,14 +59,15 @@ outputs:
         - setuptools_scm                      # [build_platform != target_platform]
         - {{ compiler('cxx') }}
         - cmake
-        - ninja
         - make  # [unix]
+        - ninja
       host:
         - gmatelastoplasticqpot
         - goosefem
         - numpy *
         - pip
         - pybind11
+        - pybind11-abi
         - python
         - qpot
         - scikit-build
@@ -78,13 +77,14 @@ outputs:
       run:
         - numpy *
         - python
+        - python-goosefem
 
     test:
       imports:
         - {{ name }}
       commands:
         - pip check
-        - python -c "import {{ name }}; {{ name }}.version()"
+        - python -c "import {{ name }}; assert {{ name }}.version() == '{{ version }}'"
       requires:
         - pip
 
