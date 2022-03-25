@@ -32,12 +32,12 @@ outputs:
         - gmatelastoplasticqpot
         - goosefem
         - qpot
-        - xtensor
+        - xtensor >=0.24.1
       run:
         - gmatelastoplasticqpot
         - goosefem
         - qpot
-        - xtensor
+        - xtensor >=0.24.1
 
     test:
       commands:
@@ -77,7 +77,7 @@ outputs:
         - qpot
         - scikit-build
         - setuptools_scm
-        - xtensor
+        - xtensor >=0.24.1
         - xtensor-python
       run:
         - numpy *
