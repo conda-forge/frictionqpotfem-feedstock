@@ -1,6 +1,6 @@
 {% set org = "tdegeus" %}
 {% set name = "FrictionQPotFEM" %}
-{% set version = "0.18.0" %}
+{% set version = "0.18.1" %}
 
 package:
   name: {{ name|lower }}-split
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 3c5c35df48d9b2faa8a59605155da6c141d81456843e43d95dd1f91fd8b7c9d7
+  sha256: 2e8edbf52958361da9b9e3f791d2cb0110048c6c19d0e2871efd2b3fd7e452ab
 
 build:
   number: 0
@@ -32,12 +32,12 @@ outputs:
         - gmatelastoplasticqpot
         - goosefem
         - qpot
-        - xtensor
+        - xtensor >=0.24.1
       run:
         - gmatelastoplasticqpot
         - goosefem
         - qpot
-        - xtensor
+        - xtensor >=0.24.1
 
     test:
       commands:
@@ -77,7 +77,7 @@ outputs:
         - qpot
         - scikit-build
         - setuptools_scm
-        - xtensor
+        - xtensor >=0.24.1
         - xtensor-python
       run:
         - numpy *
